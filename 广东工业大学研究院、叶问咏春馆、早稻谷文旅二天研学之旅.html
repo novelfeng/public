@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广东工业大学研究院 · 叶问咏春馆 · 早稻谷文旅 —— 研学旅行二天</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'AlibabaSans-Regular';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/AlibabaSans-Regular.otf');
+        }
+        @font-face {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/Alibaba-PuHuiTi-Bold.otf');
+        }
+        @font-face {
+            font-family: 'ZCOOLKuaiLe-Regular';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/ZCOOLKuaiLe-Regular.ttf');
+        }
+
+        :root {
+            --primary-orange: #FF7F50;
+            --primary-blue: #4682B4;
+            --primary-green: #66CDAA;
+            --secondary-yellow: #FFD700;
+            --bg-light: #FDFBF7;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --border-radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'AlibabaSans-Regular', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            width: 1920px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1920px;
+            height: 90px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 100px;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-text {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            font-size: 24px;
+            color: var(--primary-blue);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-orange);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary-orange);
+            transition: width 0.3s;
+            border-radius: 2px;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Banner */
+        .banner {
+            margin-top: 90px;
+            width: 100%;
+            height: 800px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e0f7fa 0%, #fff3e0 100%);
+        }
+
+        .banner-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            background: rgba(255,255,255,0.85);
+            padding: 60px 80px;
+            border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+            max-width: 1200px;
+        }
+
+        .banner h1 {
+            font-family: 'ZCOOLKuaiLe-Regular';
+            font-size: 72px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 0px #fff;
+        }
+
+        .banner p {
+            font-size: 28px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+            40% {transform: translateX(-50%) translateY(-20px);}
+            60% {transform: translateX(-50%) translateY(-10px);}
+        }
+
+        /* Common Section Styles */
+        section {
+            padding: 100px 100px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            font-size: 48px;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::before {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: -20px;
+            right: -20px;
+            height: 20px;
+            background: rgba(255, 127, 80, 0.2);
+            z-index: -1;
+            border-radius: 10px;
+        }
+
+        .section-title p {
+            font-size: 20px;
+            color: var(--text-light);
+        }
+
+        /* Course Overview */
+        .overview-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .overview-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 600px;
+        }
+
+        .overview-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .overview-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .overview-content h3 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: var(--primary-blue);
+        }
+
+        .overview-content p {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .tag-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tag {
+            padding: 10px 25px;
+            background: #eef4ff;
+            color: var(--primary-blue);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        /* Course Objectives */
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .objective-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid transparent;
+        }
+
+        .objective-card:nth-child(1) { border-color: var(--primary-blue); }
+        .objective-card:nth-child(2) { border-color: var(--primary-orange); }
+        .objective-card:nth-child(3) { border-color: var(--primary-green); }
+
+        .objective-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .objective-icon {
+            width: 100px;
+            height: 100px;
+            background: #f5f5f5;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .objective-card:nth-child(1) .objective-icon { color: var(--primary-blue); background: #eef4ff; }
+        .objective-card:nth-child(2) .objective-icon { color: var(--primary-orange); background: #fff3e0; }
+        .objective-card:nth-child(3) .objective-icon { color: var(--primary-green); background: #e0f2f1; }
+
+        .objective-card h4 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .objective-card p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        /* Timeline Schedule */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: #eee;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+        }
+
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            background: var(--primary-orange);
+            border: 4px solid white;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 0 0 4px rgba(255, 127, 80, 0.2);
+        }
+
+        .day-badge {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-time {
+            color: var(--primary-orange);
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        /* Bases Introduction */
+        .bases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .base-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+        }
+
+        .base-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .base-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .base-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .base-card:hover .base-img img {
+            transform: scale(1.1);
+        }
+
+        .base-info {
+            padding: 30px;
+        }
+
+        .base-info h4 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .base-info p {
+            color: var(--text-light);
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .base-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .base-feature-tag {
+            font-size: 12px;
+            padding: 4px 10px;
+            background-color: #f0f0f0;
+            border-radius: 12px;
+            color: #666;
+        }
+
+        /* Special Courses */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .course-item {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            display: flex;
+            gap: 30px;
+            box-shadow: var(--shadow);
+            align-items: center;
+        }
+
+        .course-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            background: #fff3e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: var(--primary-orange);
+            flex-shrink: 0;
+        }
+
+        .course-details h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .course-details p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Reviews Scroll */
+        .reviews-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        .reviews-track {
+            display: flex;
+            gap: 30px;
+            animation: scroll 30s linear infinite;
+            width: max-content;
+        }
+        
+        .reviews-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .review-card {
+            width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #eee;
+            overflow: hidden;
+        }
+        
+        .review-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .review-info h5 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .stars {
+            color: var(--secondary-yellow);
+        }
+
+        .review-text {
+            font-size: 16px;
+            color: var(--text-light);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Checklist */
+        .checklist-container {
+            background: white;
+            padding: 60px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-item:hover {
+            background: #f9f9f9;
+        }
+
+        .check-box {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--primary-green);
+            border-radius: 5px;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .checklist-item.checked .check-box {
+            background: var(--primary-green);
+        }
+
+        .checklist-item.checked span {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+
+        .checklist-text {
+            font-size: 18px;
+            color: var(--text-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 80px 100px;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .footer-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            margin-bottom: 10px;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            display: block;
+            margin-bottom: 15px;
+            color: #ccc;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #888;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://a.lovart.ai/artifacts/agent/jy90IsgWu74yUDEv.jpeg" alt="Logo">
+            <span class="logo-text">早稻谷文旅研学</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#overview">课程概况</a></li>
+                <li><a href="#objectives">课程目标</a></li>
+                <li><a href="#schedule">行程安排</a></li>
+                <li><a href="#bases">基地介绍</a></li>
+                <li><a href="#courses">专题课程</a></li>
+                <li><a href="#tips">温馨提示</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Banner -->
+    <div class="banner">
+        <img src="https://a.lovart.ai/artifacts/agent/FoqAiVRjlvDJKDFo.jpeg" alt="研学主视觉" class="banner-bg">
+        <div class="banner-content">
+            <h1>广工大研究院 · 叶问咏春 · 早稻谷</h1>
+            <p>两天一夜 · 科技与传统文化的沉浸式研学之旅</p>
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <a href="#schedule" style="padding: 15px 40px; background: var(--primary-orange); color: white; border-radius: 30px; font-size: 20px; font-weight: bold; box-shadow: 0 10px 20px rgba(255, 127, 80, 0.4);">查看详细行程</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <i class="ri-arrow-down-double-line" style="font-size: 40px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+        </div>
+    </div>
+
+    <!-- Course Overview -->
+    <section id="overview">
+        <div class="section-title">
+            <h2>课程概况</h2>
+            <p>双减背景下的素质教育新体验</p>
+        </div>
+        <div class="overview-container">
+            <div class="overview-image">
+                <img src="https://a.lovart.ai/artifacts/agent/I8AkQ0SRf23UzQcv.jpeg" alt="课程概况">
+            </div>
+            <div class="overview-content">
+                <h3>知行合一，寓教于乐</h3>
+                <p>本次研学旅行旨在贯彻落实国家"双减"政策，通过走出校园，走进广东工业大学研究院、叶问咏春馆和早稻谷文旅基地，将书本知识与社会实践紧密结合。</p>
+                <p>我们精心设计了科技探索、非遗文化传承、劳动实践教育三大板块，让学生在真实的场景中体验科技魅力，感悟武术精神，回归田园劳作，全面提升综合素质。</p>
+                <div class="tag-container">
+                    <span class="tag">科技创新</span>
+                    <span class="tag">非遗传承</span>
+                    <span class="tag">劳动教育</span>
+                    <span class="tag">生存技能</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Objectives -->
+    <section id="objectives" style="background: #f0f7ff;">
+        <div class="section-title">
+            <h2>课程目标</h2>
+            <p>全方位的成长与收获</p>
+        </div>
+        <div class="objectives-grid">
+            <div class="objective-card">
+                <div class="objective-icon">
+                    <i class="ri-book-read-line"></i>
+                </div>
+                <h4>知识目标</h4>
+                <p>了解3D打印、机器人等前沿科技原理；掌握咏春拳基本招式与历史渊源；学习农耕文化与户外生存基础知识。</p>
+            </div>
+            <div class="objective-card">
+                <div class="objective-icon">
+                    <i class="ri-run-line"></i>
+                </div>
+                <h4>能力目标</h4>
+                <p>提升动手实践能力、团队协作能力；锻炼身体协调性；培养野外生存自救互救技能及独立生活能力。</p>
+            </div>
+            <div class="objective-card">
+                <div class="objective-icon">
+                    <i class="ri-heart-pulse-line"></i>
+                </div>
+                <h4>情感目标</h4>
+                <p>增强民族自豪感与文化自信；培养热爱劳动、珍惜粮食的优良品质；树立科技报国的远大理想。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section id="schedule">
+        <div class="section-title">
+            <h2>行程安排</h2>
+            <p>充实而精彩的两天一夜</p>
+        </div>
+        <div class="timeline">
+            <!-- Day 1 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="day-badge">第一天</span>
+                    <div class="timeline-time">08:00 - 09:30</div>
+                    <div class="timeline-title">集合出发</div>
+                    <div class="timeline-desc">学校集合，乘坐大巴前往广东工业大学佛山研究院。车上进行研学安全教育及开营仪式。</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="day-badge">第一天</span>
+                    <div class="timeline-time">09:30 - 11:30</div>
+                    <div class="timeline-title">科技探索之旅</div>
+                    <div class="timeline-desc">参观广工大研究院展厅，了解半导体、人工智能等前沿科技。体验3D打印技术，观看机器人表演。</div>
+                </div>
+            </div>
+             <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="day-badge">第一天</span>
+                    <div class="timeline-time">14:00 - 16:30</div>
+                    <div class="timeline-title">探访叶问咏春</div>
+                    <div class="timeline-desc">前往叶问纪念馆，聆听一代宗师的传奇故事。在专业师傅指导下学习咏春拳基本套路，感悟武德精神。</div>
+                </div>
+            </div>
+             <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="day-badge">第一天</span>
+                    <div class="timeline-time">19:00 - 20:30</div>
+                    <div class="timeline-title">篝火晚会</div>
+                    <div class="timeline-desc">入住早稻谷基地，举行篝火晚会，分享当日研学心得，进行才艺展示。</div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+             <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="day-badge">第二天</span>
+                    <div class="timeline-time">09:00 - 11:30</div>
+                    <div class="timeline-title">户外生存挑战</div>
+                    <div class="timeline-desc">在早稻谷基地进行户外生存训练，学习急救包扎、担架制作、野外取火等实用技能。</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="day-badge">第二天</span>
+                    <div class="timeline-time">11:30 - 13:30</div>
+                    <div class="timeline-title">野炊大作战</div>
+                    <div class="timeline-desc">分组进行野炊，从捡柴生火到洗菜做饭，亲手制作一顿美味的午餐，体验劳动最光荣。</div>
+                </div>
+            </div>
+             <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="day-badge">第二天</span>
+                    <div class="timeline-time">14:00 - 16:00</div>
+                    <div class="timeline-title">结营仪式与返程</div>
+                    <div class="timeline-desc">总结两天研学收获，颁发研学证书，合影留念，安全返回温馨的家。</div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px;">
+            <img src="https://a.lovart.ai/artifacts/agent/jVEl7vLM2vL18KgS.jpeg" alt="详细行程表" style="width: 800px; border-radius: 20px; box-shadow: var(--shadow);">
+        </div>
+    </section>
+
+    <!-- Bases Introduction -->
+    <section id="bases" style="background: white;">
+        <div class="section-title">
+            <h2>研学基地</h2>
+            <p>三大核心基地，多元化学习场景</p>
+        </div>
+        <div class="bases-grid">
+            <div class="base-card">
+                <div class="base-img">
+                    <img src="https://a.lovart.ai/artifacts/agent/8d3wVeSimI2wpFdG.jpeg" alt="广工大研究院">
+                </div>
+                <div class="base-info">
+                    <h4>广东工业大学研究院</h4>
+                    <p>集科技研发、成果转化、人才培养于一体的现代化科研基地。拥有先进的实验室和展示中心，是青少年科普教育的理想场所。</p>
+                    <div class="base-features">
+                        <span class="base-feature-tag">人工智能</span>
+                        <span class="base-feature-tag">3D打印</span>
+                        <span class="base-feature-tag">科普教育</span>
+                    </div>
+                </div>
+            </div>
+            <div class="base-card">
+                <div class="base-img">
+                    <img src="https://a.lovart.ai/artifacts/agent/I8AkQ0SRf23UzQcv.jpeg" alt="叶问咏春馆" style="object-position: top;">
+                </div>
+                <div class="base-info">
+                    <h4>叶问咏春纪念馆</h4>
+                    <p>坐落于一代宗师叶问的故乡，系统展示了咏春拳的历史发展与文化内涵。馆内保存大量珍贵文物，弘扬尚武精神。</p>
+                    <div class="base-features">
+                        <span class="base-feature-tag">非遗文化</span>
+                        <span class="base-feature-tag">武术体验</span>
+                        <span class="base-feature-tag">传统美德</span>
+                    </div>
+                </div>
+            </div>
+            <div class="base-card">
+                <div class="base-img">
+                    <img src="https://a.lovart.ai/artifacts/agent/2lBfuMK28M1mr7qy.jpeg" alt="早稻谷文旅基地">
+                </div>
+                <div class="base-info">
+                    <h4>早稻谷文旅基地</h4>
+                    <p>位于风景秀丽的自然山水间，专注于青少年户外拓展与劳动教育。设施完善，课程丰富，是回归自然、释放天性的乐园。</p>
+                    <div class="base-features">
+                        <span class="base-feature-tag">户外拓展</span>
+                        <span class="base-feature-tag">劳动实践</span>
+                        <span class="base-feature-tag">野外生存</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Courses -->
+    <section id="courses">
+        <div class="section-title">
+            <h2>特色专题课程</h2>
+            <p>深度体验，技能满点</p>
+        </div>
+        <div class="courses-grid">
+            <div class="course-item">
+                <div class="course-icon">
+                    <i class="ri-hammer-line"></i>
+                </div>
+                <div class="course-details">
+                    <h4>劳动实践课</h4>
+                    <p>从农作物识别到亲手采摘，再到野炊烹饪，全过程参与劳动，体会"谁知盘中餐，粒粒皆辛苦"的深刻含义。</p>
+                </div>
+            </div>
+            <div class="course-item">
+                <div class="course-icon">
+                    <i class="ri-compass-3-line"></i>
+                </div>
+                <div class="course-details">
+                    <h4>户外生存课</h4>
+                    <p>模拟野外环境，学习辨别方向、搭建庇护所、寻找水源等生存技能，培养面对困难冷静处理的勇气。</p>
+                </div>
+            </div>
+            <div class="course-item">
+                <div class="course-icon">
+                    <i class="ri-first-aid-kit-line"></i>
+                </div>
+                <div class="course-details">
+                    <h4>急救技能课</h4>
+                    <p>掌握心肺复苏(CPR)、创伤包扎、意外伤害处理等急救知识，提升自救互救能力，守护生命安全。</p>
+                </div>
+            </div>
+            <div class="course-item">
+                <div class="course-icon">
+                    <i class="ri-robot-line"></i>
+                </div>
+                <div class="course-details">
+                    <h4>科技制作课</h4>
+                    <p>利用简单的电子元件和材料，亲手制作科学小发明，激发创新思维，点燃对科学的热爱。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" style="background: #fdfbf7;">
+        <div class="section-title">
+            <h2>小小研学家感悟</h2>
+            <p>听听他们的真实声音</p>
+        </div>
+        <div class="reviews-wrapper">
+            <div class="reviews-track">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar"><img src="https://a.lovart.ai/artifacts/agent/8u1fxkNxePFubK8k.jpeg" alt="学生头像"></div>
+                        <div class="review-info">
+                            <h5>张同学 (五年级)</h5>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"这次研学太有趣了！我第一次见到了真的机器人，还学会了咏春拳的'日字冲拳'，觉得自己像个小侠客！"</p>
+                </div>
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar"><img src="https://a.lovart.ai/artifacts/agent/8u1fxkNxePFubK8k.jpeg" alt="学生头像"></div>
+                        <div class="review-info">
+                            <h5>李同学 (四年级)</h5>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"野炊做饭虽然很累，但是吃自己做的饭特别香。我还学会了怎么包扎伤口，以后可以帮助别人了。"</p>
+                </div>
+                 <!-- Review 3 -->
+                 <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar"><img src="https://a.lovart.ai/artifacts/agent/8u1fxkNxePFubK8k.jpeg" alt="学生头像"></div>
+                        <div class="review-info">
+                            <h5>王同学 (六年级)</h5>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"广工大研究院的科技感太强了，我想以后当一名工程师。晚上的篝火晚会大家一起唱歌跳舞，非常开心！"</p>
+                </div>
+                <!-- Duplicate for infinite scroll effect -->
+                 <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar"><img src="https://a.lovart.ai/artifacts/agent/8u1fxkNxePFubK8k.jpeg" alt="学生头像"></div>
+                        <div class="review-info">
+                            <h5>张同学 (五年级)</h5>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"这次研学太有趣了！我第一次见到了真的机器人，还学会了咏春拳的'日字冲拳'，觉得自己像个小侠客！"</p>
+                </div>
+                 <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar"><img src="https://a.lovart.ai/artifacts/agent/8u1fxkNxePFubK8k.jpeg" alt="学生头像"></div>
+                        <div class="review-info">
+                            <h5>李同学 (四年级)</h5>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"野炊做饭虽然很累，但是吃自己做的饭特别香。我还学会了怎么包扎伤口，以后可以帮助别人了。"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklist / Tips -->
+    <section id="tips">
+        <div class="section-title">
+            <h2>温馨提示 & 装备清单</h2>
+            <p>出发前请仔细检查哦</p>
+        </div>
+        <div class="checklist-container">
+            <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                <div class="check-box"><i class="ri-check-line"></i></div>
+                <div class="checklist-text">双肩背包（轻便、耐磨）</div>
+            </div>
+            <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                <div class="check-box"><i class="ri-check-line"></i></div>
+                <div class="checklist-text">换洗衣物（运动装2套，防滑运动鞋）</div>
+            </div>
+            <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                <div class="check-box"><i class="ri-check-line"></i></div>
+                <div class="checklist-text">个人洗漱用品（牙膏、牙刷、毛巾、沐浴露等）</div>
+            </div>
+            <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                <div class="check-box"><i class="ri-check-line"></i></div>
+                <div class="checklist-text">雨具（雨伞或雨衣）</div>
+            </div>
+             <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                <div class="check-box"><i class="ri-check-line"></i></div>
+                <div class="checklist-text">水杯（建议自带保温杯）</div>
+            </div>
+            <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                <div class="check-box"><i class="ri-check-line"></i></div>
+                <div class="checklist-text">常用药品（晕车药、驱蚊水等个人特殊药品）</div>
+            </div>
+             <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                <div class="check-box"><i class="ri-check-line"></i></div>
+                <div class="checklist-text">研学手册与笔</div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px;">
+             <img src="https://a.lovart.ai/artifacts/agent/wan0CzgFGTErzb0m.jpeg" alt="温馨提示" style="width: 800px; border-radius: 20px; box-shadow: var(--shadow);">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="logo" style="margin-bottom: 20px;">
+                     <img src="https://a.lovart.ai/artifacts/agent/jy90IsgWu74yUDEv.jpeg" alt="Logo" style="filter: brightness(100); height: 40px;">
+                     <span class="logo-text" style="color: white;">早稻谷文旅研学</span>
+                </div>
+                <p>专注于青少年素质教育研学旅行</p>
+                <div style="margin-top: 30px;">
+                    <p><i class="ri-map-pin-line"></i> 地址：广东省广州市天河区早稻谷研学基地</p>
+                    <p><i class="ri-phone-line"></i> 电话：020-12345678</p>
+                    <p><i class="ri-mail-line"></i> 邮箱：<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6704080913060413271d060803060800124904080a">[email&#160;protected]</a></p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>快速链接</h3>
+                <a href="#overview">课程概况</a>
+                <a href="#objectives">课程目标</a>
+                <a href="#schedule">行程安排</a>
+                <a href="#bases">基地介绍</a>
+            </div>
+            <div class="footer-links">
+                <h3>关于我们</h3>
+                <a href="#">品牌故事</a>
+                <a href="#">师资团队</a>
+                <a href="#">合作机构</a>
+                <a href="#">加入我们</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 早稻谷文旅研学. All Rights Reserved. </p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active link highlighting on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
